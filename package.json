@@ -1,0 +1,22 @@
+{
+  "name": "smart-localization-2",
+  "description": "A localization plugin for the Unity3D game engine",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "node ./node_modules/gulp/bin/gulp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NiklasBorglund/SmartLocalization2.git"
+  },
+  "author": "Niklas Borglund & Jakob Hillerström",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "files-exist": "^1.0.1",
+    "gulp": "^3.9.1",
+    "gulp-sync": "^0.1.4",
+    "rimraf": "^2.5.4",
+    "upath": "^0.2.0"
+  }
+}
