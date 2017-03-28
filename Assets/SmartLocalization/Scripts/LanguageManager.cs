@@ -462,9 +462,9 @@ public class LanguageManager : MonoBehaviour, ISerializationCallbackReceiver
 	}
 
 	/// <summary>
-	/// Checks if the language is supported with the english name. i.e. "English" "French" etc.
+	/// Checks if the language is supported with the English name. i.e. "English" "French" etc.
 	/// </summary>
-	/// <param name="englishName">The english name of the language</param>
+	/// <param name="englishName">The English name of the language</param>
 	/// <returns>If the language is supported</returns>
 	public bool IsLanguageSupportedEnglishName(string englishName)
 	{
@@ -488,7 +488,7 @@ public class LanguageManager : MonoBehaviour, ISerializationCallbackReceiver
 	}
 
 	/// <summary>
-	/// Gets the name of the system language in an english name. 
+	/// Gets the name of the system language in an English name. 
 	/// If its SystemLanguage.Unknown, a string with the value "Unknown" will be returned.
 	/// </summary>
 	public string GetSystemLanguageEnglishName()
@@ -593,7 +593,7 @@ public class LanguageManager : MonoBehaviour, ISerializationCallbackReceiver
 	/// <summary>
 	/// Returns a font in the current language for the key with a custom plural form. Returns null if nothing is found.
 	/// </summary>
-	/// <returns>The localised font</returns>
+	/// <returns>The localized font</returns>
 	public Font GetFont(string key, int count, Func<int, int> pluralForm)
 	{
 		return GetFont(PluralForms.GetPluralKey(key, count, pluralForm));
