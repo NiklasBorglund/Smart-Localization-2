@@ -28,8 +28,8 @@ public class LocalizedTextInspector : Editor
 		if(!Application.isPlaying && GUILayout.Button("Use Key", GUILayout.Width(70)))
 		{
 			LocalizedText textObject = ((LocalizedText)target);
+			Undo.RecordObject(textObject, "Set Smart Localization text");
 			textObject.localizedKey = selectedKey;
-            EditorUtility.SetDirty(textObject);
         }
 	}
 	

@@ -81,7 +81,7 @@ public class SmartCultureInfoCollection
 #region Lookups
 
 	/// <summary>
-	/// Finds a culture info from the list. Compares the englishname and the language code
+	/// Finds a culture info from the list. Compares the English name and the language code
 	/// </summary>
 	/// <param name="cultureInfo">The culture info to find</param>
 	/// <returns>The culture info, returns null if not found</returns>
@@ -134,7 +134,7 @@ public class SmartCultureInfo
 {
 	/// <summary> The language code of the culture. (e.g. sv, en, de, fr)</summary>
 	public string languageCode 	= null;
-	/// <summary> The english name of the culture</summary>
+	/// <summary> The English name of the culture</summary>
 	public string englishName	= null;
 	/// <summary> The native name of the culture</summary>
 	public string nativeName	= null;
@@ -147,7 +147,7 @@ public class SmartCultureInfo
 	/// Creates a new instance of SmartCultureInfo
 	/// </summary>
 	/// <param name="languageCode">The language code of the culture. (e.g. sv, en, de, fr)</param>
-	/// <param name="englishName">The english name of the culture</param>
+	/// <param name="englishName">The English name of the culture</param>
 	/// <param name="nativeName">The native name of the culture</param>
 	public SmartCultureInfo(string languageCode, string englishName, string nativeName, bool isRightToLeft)
 	{
