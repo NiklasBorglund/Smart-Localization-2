@@ -254,8 +254,6 @@ public static class LanguageHandlerEditor
 		using(XmlTextWriter xmlWriter = new XmlTextWriter(filePath,Encoding.UTF8))
 		{
 			xmlWriter.Formatting = Formatting.Indented;
-			xmlWriter.Settings.Encoding = Encoding.UTF8;
-			xmlWriter.Settings.Indent = true;
 			xmlWriter.WriteStartDocument();
 			xmlWriter.WriteStartElement("root");
 			xmlWriter.WriteRaw(resxHeader); // Paste in the raw resx header
