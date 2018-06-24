@@ -1,19 +1,20 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
+using UnityEngine;
 
-
-namespace SmartLocalization.Editor{
+namespace SmartLocalization.Editor
+{
 	[TestFixture]
-	public class CSVParserTests {
+	public class CSVParserTests
+	{
 		static string TestCSVDataWithComma = "\"TestKey\",\"TestValue\"";
 		static string TestCSVDataWithSemiColon = "\"TestKey\";\"TestValue\"";
 		static string TestCSVDataWithTab = "\"TestKey\"\t\"TestValue\"";
 		static string TestCSVDataWithVerticalBar = "\"TestKey\"|\"TestValue\"";
 		static string TestCSVDataWithCaret = "\"TestKey\"^\"TestValue\"";
 		static string TestCSVDataWithQuoteMarks = "\"TestKey\",\"TestValue\"\"\"\"\"";
-		
+
 		List<List<string>> GetCsvWriteTestData(string testKey, string testValue)
 		{
 			List<List<string>> csvData = new List<List<string>>();
@@ -23,7 +24,7 @@ namespace SmartLocalization.Editor{
 			csvData.Add(firstLine);
 			return csvData;
 		}
-		
+
 		[Test]
 		public void TestCSVWriteWithComma_Success()
 		{
@@ -33,7 +34,7 @@ namespace SmartLocalization.Editor{
 			Assert.AreEqual(testData[0][0], actualData[0][0]);
 			Assert.AreEqual(testData[0][1], actualData[0][1]);
 		}
-		
+
 		[Test]
 		public void TestCSVReadWithWrongDelimiter_Failure()
 		{
@@ -42,7 +43,7 @@ namespace SmartLocalization.Editor{
 			Assert.AreNotEqual(2, result[0].Count);
 			Assert.AreNotEqual("TestKey", result[0][0]);
 		}
-		
+
 		[Test]
 		public void TestCSVWriteWithSemiColon_Success()
 		{
@@ -52,7 +53,7 @@ namespace SmartLocalization.Editor{
 			Assert.AreEqual(testData[0][0], actualData[0][0]);
 			Assert.AreEqual(testData[0][1], actualData[0][1]);
 		}
-		
+
 		[Test]
 		public void TestCSVWriteWithTab_Success()
 		{
@@ -62,7 +63,7 @@ namespace SmartLocalization.Editor{
 			Assert.AreEqual(testData[0][0], actualData[0][0]);
 			Assert.AreEqual(testData[0][1], actualData[0][1]);
 		}
-		
+
 		[Test]
 		public void TestCSVWriteWithVerticalBar_Success()
 		{
@@ -72,7 +73,7 @@ namespace SmartLocalization.Editor{
 			Assert.AreEqual(testData[0][0], actualData[0][0]);
 			Assert.AreEqual(testData[0][1], actualData[0][1]);
 		}
-		
+
 		[Test]
 		public void TestCSVWriteWithCaret_Success()
 		{
@@ -82,7 +83,7 @@ namespace SmartLocalization.Editor{
 			Assert.AreEqual(testData[0][0], actualData[0][0]);
 			Assert.AreEqual(testData[0][1], actualData[0][1]);
 		}
-		
+
 		[Test]
 		public void TestCSVReadWithComma_Success()
 		{
@@ -92,7 +93,7 @@ namespace SmartLocalization.Editor{
 			Assert.AreEqual("TestKey", result[0][0]);
 			Assert.AreEqual("TestValue", result[0][1]);
 		}
-		
+
 		[Test]
 		public void TestCSVReadWithSemiColon_Success()
 		{
@@ -102,7 +103,7 @@ namespace SmartLocalization.Editor{
 			Assert.AreEqual("TestKey", result[0][0]);
 			Assert.AreEqual("TestValue", result[0][1]);
 		}
-		
+
 		[Test]
 		public void TestCSVReadWithTab_Success()
 		{
@@ -112,7 +113,7 @@ namespace SmartLocalization.Editor{
 			Assert.AreEqual("TestKey", result[0][0]);
 			Assert.AreEqual("TestValue", result[0][1]);
 		}
-		
+
 		[Test]
 		public void TestCSVReadWithVerticalBar_Success()
 		{
@@ -122,7 +123,7 @@ namespace SmartLocalization.Editor{
 			Assert.AreEqual("TestKey", result[0][0]);
 			Assert.AreEqual("TestValue", result[0][1]);
 		}
-		
+
 		[Test]
 		public void TestCSVReadWithCaret_Success()
 		{
@@ -132,7 +133,7 @@ namespace SmartLocalization.Editor{
 			Assert.AreEqual("TestKey", result[0][0]);
 			Assert.AreEqual("TestValue", result[0][1]);
 		}
-		
+
 		[Test]
 		public void TestCSVReadWithExtraQuoteMarks_Success()
 		{
@@ -142,19 +143,17 @@ namespace SmartLocalization.Editor{
 			Assert.AreEqual("TestKey", result[0][0]);
 			Assert.AreEqual("TestValue\"\"", result[0][1]);
 		}
-		
+
 		[Test]
-		[ExpectedException(typeof(System.ArgumentException))]
 		public void TestCSVReadEmptyContent_ArgumentException()
 		{
-			CSVParser.ReadFromString(null, CSVParser.GetDelimiter(CSVParser.Delimiter.COMMA));
+			Assert.That(()=> CSVParser.ReadFromString(null, CSVParser.GetDelimiter(CSVParser.Delimiter.COMMA)), Throws.ArgumentException);
 		}
-		
+
 		[Test]
-		[ExpectedException(typeof(System.IO.FileNotFoundException))]
 		public void TestCSVRead_FileNotFoundException()
 		{
-			CSVParser.Read(string.Empty, CSVParser.GetDelimiter(CSVParser.Delimiter.COMMA));
+			Assert.Throws<System.IO.FileNotFoundException>(()=> CSVParser.Read(string.Empty, CSVParser.GetDelimiter(CSVParser.Delimiter.COMMA)));
 		}
 	}
 }
